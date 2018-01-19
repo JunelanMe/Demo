@@ -1,0 +1,40 @@
+version: '2'
+services:
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: junelan/demo
+    container_name: mydemo
+    volumes:
+     - ./puppet:/project/puppet
+     - ../webapp:/project/webapp
+    dns_search:
+     - docker.junelan.space
+    environment:
+     - container=docker
+    privileged: true
+    entrypoint: /usr/sbin/init
+    cap_add:
+     - SYS_ADMIN # for win7
+    tty: true
+
+  webapp:
+    image: junelan/demo
+    restart: always
+    ports:
+      - "8000:80"
+    dns_search:
+      - docker.junelan.space
+    environment:
+      - container=docker
+      - PATH=/vagrant/webapp/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    cap_add:
+      - SYS_ADMIN # for win7
+    volumes:
+      - ./puppet:/project/puppet
+      - ../webapp:/project/webapp
+    tty: true
+    privileged: true
+    entrypoint: /usr/sbin/init
+
