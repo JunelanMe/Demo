@@ -19,6 +19,7 @@ class osphp {
     'rpcbind',
     'initscripts',
     'gd',
+    'libmcrypt',
    ]
 
    $php_package_list = [
