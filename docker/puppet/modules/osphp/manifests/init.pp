@@ -80,4 +80,11 @@ class osphp {
       gpgcheck   => 0
     }
 
+      file { '/etc/php.d/xdebug.ini':
+    ensure  => file,
+    group   => root, owner => root, mode => 644,
+    source  => 'puppet:///modules/osphp/xdebug.ini',
+    require => Package['php'],
+  }
+
 }

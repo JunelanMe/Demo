@@ -23,7 +23,7 @@ services:
     image: repo-fz.connectedpdf.com:5000/junelan/demo:done
     restart: always
     ports:
-      - "8000:80"
+      - "80:80"
     dns_search:
       - docker.junelan.space
     environment:
