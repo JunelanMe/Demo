@@ -18,4 +18,4 @@ then
   exit $E_BADARGS
 fi
 
-$MYSQL -uroot -prootxx -e "$SQL"
+$MYSQL -uroot -e "$SQL"
