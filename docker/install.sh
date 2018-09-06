@@ -31,7 +31,8 @@ fi
  #3 
  cd /opt/wordpress
 COUNT=`cat wp-config.php  |grep "'wp'" |wc -l`
-if [ $COUNT -ne 3 ]; then
+if [ $COUNT -ne 3 ]
+then
    echoRed " wp-config.php does not config correct , correct it  "
    cp wp-config-sample.php wp-config.php
 
