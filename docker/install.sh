@@ -1,11 +1,7 @@
 #!/bin/bash
-
 function echoGreen(){   echo -e "\033[42;34m ------------------> PASS $1 \033[0m" }
-
 function echoRed(){     echo -e "\033[41;37m ------------------> ERROR $1 \033[0m" }
-
 function echoYellow(){  echo -e "\033[43;30m ------------------> Warning $1 \033[0m" }
-
 function echoBlue(){    echo -e "\033[46;30m ------------------> STEP $1 \033[0m" }
 
 rpm -qa|grep puppet
