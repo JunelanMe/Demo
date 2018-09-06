@@ -54,7 +54,7 @@ class osphp {
 
     package { $php_package_list :
     ensure  => installed,
-    require => Yumrepo['remi-php70'],
+    require => Yumrepo['remi-php73'],
   }
 
         yumrepo { "remi-php5.5":
@@ -66,11 +66,20 @@ class osphp {
         gpgcheck   => 0, 
         }
 
-        
-          yumrepo { "remi-php70":
+
+        yumrepo { "remi-php70":
         baseurl    => "http://repo1.sea.innoscale.net/remi/enterprise/7/php70/x86_64/",
         mirrorlist => absent,
         descr      => "Remi's PHP 7.0 RPM repository for Enterprise Linux 7 - \$basearch",
+        enabled    => 1,
+        priority => 1,
+        gpgcheck   => 0, 
+        }
+
+        yumrepo { "remi-php73":
+        baseurl    => "http://repo1.sea.innoscale.net/remi/enterprise/7/php73/x86_64/",
+        mirrorlist => absent,
+        descr      => "Remi's PHP 7.3 RPM repository for Enterprise Linux 7 - \$basearch",
         enabled    => 1,
         priority => 1,
         gpgcheck   => 0, 
